@@ -4,9 +4,10 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 ## 1. What was broken when you started?
 
-- What did the game look like the first time you ran it?
-- List at least two concrete bugs you noticed at the start  
-  (for example: "the hints were backwards").
+  1. The "New Game" button starts a new round, but clicking "Submit" in the new game produces no response.
+  2. In the difficulty adjustment section on the left, selecting a new difficulty level should refresh the game, but it does not.
+  3. The difficulty settings are illogical: "Normal" mode offers a guessing range of 1–100 with 8 attempts, whereas "Hard" mode has a range of 1–50 with only 5 attempts, and "Easy" mode allows 6 attempts.
+  4. Entering a number higher than the target displays "Go Higher" (it should show "Go Lower"), and vice versa.
 
 **Bug Reproduction Log**
 
@@ -14,9 +15,9 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+|guess of 64| Go Lower      | Go Higher       | None                   |
+|New Game| Playing the new game normally| Submit guess button did not work| None|
+|Adjust difficulty| start a new game with new difficulty| Did not start a new game| None|
 
 ---
 

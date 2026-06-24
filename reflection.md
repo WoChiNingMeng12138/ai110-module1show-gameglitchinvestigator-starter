@@ -23,18 +23,31 @@ Document at least 3 bugs you found. Add rows as needed.
 
 ## 2. How did you use AI as a teammate?
 
-- Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
-- Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
-- Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
+- I used ChatGPT and the Claude extension in VS Code as AI coding assistants during this project. I used them to help me understand the bugs, decide which functions should move into logic_utils.py, and create tests for the game logic.
+
+- One correct AI suggestion was to move the pure game logic functions out of app.py and into logic_utils.py. These functions included get_range_for_difficulty, parse_guess, check_guess, and update_score.  I verified this by importing the functions from logic_utils.py in tests/test_game_logic.py and running python -m pytest. The tests passed.
+
+- There was a logic error in the initial AI-generated code: when I first specified that the allowed number of attempts should vary based on difficulty level, the AI ​​failed to make the change entirely—it only worked after I reiterated the requirement.
 
 ---
 
 ## 3. Debugging and testing your fixes
 
-- How did you decide whether a bug was really fixed?
-- Describe at least one test you ran (manual or using pytest)  
-  and what it showed you about your code.
-- Did AI help you design or understand any tests? How?
+- I decided whether the bugs were fixed by using both automated tests and manual testing in the terminal. For automated testing, I added pytest tests in tests/test_game_logic.py.
+
+- python -m pytest
+
+- The result showed that all tests passed:
+
+- 15 passed
+
+- This confirmed that the core game logic worked correctly after my repairs.
+
+- I also tested the live game manually by running:
+
+- python -m streamlit run app.py
+
+- In the app, I checked that entering a number higher than the secret number showed “Go LOWER,” and entering a number lower than the secret number showed “Go HIGHER.” I also checked that clicking “New Game” reset the game properly and allowed the “Submit Guess” button to keep working. Finally, I tested the difficulty select function and confirmed that changing the difficulty refreshed the game with the correct range and attempt limit.
 
 ---
 
